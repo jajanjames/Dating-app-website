@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Plus Jakarta Sans", "Noto Sans Malayalam", -apple-system, BlinkMacSystemFont, sans-serif;
+    --brand-pink: #ff004d;
+    --brand-purple: #6c3ce9;
+    --text-primary: #1d1d1f;
+    --text-secondary: #52525b;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    color: var(--text-primary);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Native <details> & <summary> reset for zero-JS FAQ accordions */
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Mobile menu sheet smooth transition */
+.mobile-menu-sheet {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  pointer-events: none;
+  transition:
+    opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-sheet[data-open="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Seamless, minimal Bento physics, scroll-triggered awakening & ambient spotlight */
+.bento-card {
+  position: relative;
+  touch-action: manipulation;
+  transition:
+    background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-card:active {
+  transform: scale(0.988);
+}
+
+.bento-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 0, 77, 0.05),
+    rgba(108, 60, 233, 0.035) 45%,
+    transparent 75%
+  );
+}
+
+.bento-card:hover,
+.bento-card[data-active="true"] {
+  background-color: #f2f2f4;
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.07);
+}
+
+.bento-card:hover::before,
+.bento-card[data-in-view="true"]::before,
+.bento-card[data-active="true"]::before {
+  opacity: 1;
+}
+
+.bento-visual {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* On mobile viewports, gently lift the visual when the card scrolls into the active zone */
+@media (max-width: 767px) {
+  .bento-card[data-in-view="true"] .bento-visual {
+    transform: translate3d(0, -4px, 0) scale(1.02);
+  }
+}
+
+.bento-pill-bar {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-card:hover .bento-pill-bar,
+.bento-card:focus-within .bento-pill-bar,
+.bento-card[data-in-view="true"] .bento-pill-bar,
+.bento-card[data-active="true"] .bento-pill-bar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-card,
+  .bento-visual,
+  .bento-pill-bar,
+  .mobile-menu-sheet {
+    transition: none !important;
+    transform: none !important;
+  }
+}

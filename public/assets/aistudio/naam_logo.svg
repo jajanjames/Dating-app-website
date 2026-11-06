@@ -1,0 +1,53 @@
+<svg width="440" height="108" viewBox="0 0 440 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- n: pure geometric arch with flat baseline terminals -->
+  <path
+    d="M 10 88 L 10 49 A 26.5 26.5 0 0 1 63 49 L 63 88"
+    stroke="#363636"
+    stroke-width="17.5"
+    stroke-linecap="butt"
+  />
+  <!-- a (1): geometric circle + right baseline stem -->
+  <circle
+    cx="114"
+    cy="51"
+    r="28.25"
+    stroke="#363636"
+    stroke-width="17.5"
+  />
+  <path
+    d="M 142.25 51 L 142.25 88"
+    stroke="#363636"
+    stroke-width="17.5"
+    stroke-linecap="butt"
+  />
+  <!-- a (2): geometric circle + right baseline stem -->
+  <circle
+    cx="190"
+    cy="51"
+    r="28.25"
+    stroke="#363636"
+    stroke-width="17.5"
+  />
+  <path
+    d="M 218.25 51 L 218.25 88"
+    stroke="#363636"
+    stroke-width="17.5"
+    stroke-linecap="butt"
+  />
+  <!-- m: double geometric arch with flat baseline terminals -->
+  <path
+    d="M 244 88 L 244 47.5 A 25 25 0 0 1 294 47.5 L 294 88 M 294 47.5 A 25 25 0 0 1 344 47.5 L 344 88"
+    stroke="#363636"
+    stroke-width="17.5"
+    stroke-linecap="butt"
+    stroke-linejoin="round"
+  />
+  <!-- Pink ribbon heart (#F01264) -->
+  <path
+    d="M 361 94 C 382 93 416 74 427 46 C 433 30 426 15 412 14 C 401 13 394 24 393 36 C 390 23 383 10 371 10 C 357 10 351 25 356 43 C 364 71 392 89 412 98"
+    stroke="#F01264"
+    stroke-width="12.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "Naam Dating (നാം)",
+  "description": "Meet verified Malayali singles in Kerala, Bangalore, Dubai, UK & Canada. Naam Dating (നാം) is the safe, private Malayalam dating app where you can block known phone contacts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

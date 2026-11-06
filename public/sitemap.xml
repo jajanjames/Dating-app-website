@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://naamdating.com/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://naamdating.com/" />
+    <xhtml:link rel="alternate" hreflang="ml" href="https://naamdating.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://naamdating.com/" />
+    <image:image>
+      <image:loc>https://naamdating.com/assets/aistudio/Group_12_34a08f7b.png</image:loc>
+      <image:title>Naam Dating (നാം) Malayali App Interface</image:title>
+      <image:caption>Discover verified Malayali singles in Kochi, Kerala, Bangalore, Dubai, London, and worldwide on the Naam Dating app.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://naamdating.com/assets/aistudio/Frame_2147223729_f262686a.png</image:loc>
+      <image:title>Someone new. Something familiar. — Naam Dating (നാം)</image:title>
+      <image:caption>Meet Malayali singles who get you on Naam Dating (നാം).</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://naamdating.com/privacy</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://naamdating.com/terms</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

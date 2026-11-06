@@ -1,0 +1,19 @@
+# robots.txt for Naam Dating (നാം) - https://naamdating.com/
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow Googlebot Image & Social Crawlers full access to static assets
+User-agent: Googlebot-Image
+Allow: /assets/
+
+User-agent: Facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://naamdating.com/sitemap.xml
