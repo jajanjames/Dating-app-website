@@ -11,31 +11,32 @@ interface StoredWaitlistUser {
 }
 
 const WAITLIST_STORAGE_KEY = 'naam_waitlist_verified_v1';
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://naam.gredin.app')
+  .trim()
+  .replace(/^["']|["']$/g, '')
+  .replace(/\/+$/, '')
+  .replace(/\/users$/, '');
 
 async function postWaitlistApi<T>(
   endpoint: 'submit' | 'verify-otp' | 'resend-otp',
   payload: Record<string, unknown>
 ): Promise<T> {
+  const directUrl = `${API_BASE_URL}/users/${endpoint}`;
+  const requestInit: RequestInit = {
+    method: 'POST',
+    headers: {
+      accept: '*/*',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  };
+
   let response: Response;
   try {
-    response = await fetch(`/api/users/${endpoint}`, {
-      method: 'POST',
-      headers: {
-        accept: '*/*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
+    response = await fetch(directUrl, requestInit);
   } catch {
-    // Fallback if running without local proxy
-    response = await fetch(`https://naam.gredin.app/users/${endpoint}`, {
-      method: 'POST',
-      headers: {
-        accept: '*/*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
+    // Fallback to local proxy if browser CORS blocks the direct request
+    response = await fetch(`/api/users/${endpoint}`, requestInit);
   }
 
   let data: Record<string, unknown> = {};

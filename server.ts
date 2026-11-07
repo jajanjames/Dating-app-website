@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,7 +7,11 @@ import { createServer as createViteServer } from 'vite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const NAAM_API_BASE = 'https://naam.gredin.app';
+const NAAM_API_BASE = (
+  process.env.VITE_API_BASE_URL ||
+  process.env.API_BASE_URL ||
+  'https://naam.gredin.app'
+).replace(/\/+$/, '');
 
 async function startServer() {
   const app = express();

@@ -1,11 +1,35 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import {defineConfig, loadEnv} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({mode}) => {
+  const env = loadEnv(mode, '.', '');
+  const apiBaseUrl = (
+    env.VITE_API_BASE_URL ||
+    process.env.VITE_API_BASE_URL ||
+    env.API_BASE_URL ||
+    process.env.API_BASE_URL ||
+    'https://naam.gredin.app'
+  )
+    .trim()
+    .replace(/^["']|["']$/g, '')
+    .replace(/\/+$/, '')
+    .replace(/\/users$/, '');
+
+  const proxyConfig = {
+    '/api/users': {
+      target: apiBaseUrl,
+      changeOrigin: true,
+      rewrite: (p: string) => p.replace(/^\/api\/users/, '/users'),
+    },
+  };
+
   return {
     plugins: [react(), tailwindcss()],
+    define: {
+      'import.meta.env.VITE_API_BASE_URL': JSON.stringify(apiBaseUrl),
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
@@ -26,13 +50,10 @@ export default defineConfig(() => {
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
-      proxy: {
-        '/api/users': {
-          target: 'https://naam.gredin.app',
-          changeOrigin: true,
-          rewrite: (p) => p.replace(/^\/api\/users/, '/users'),
-        },
-      },
+      proxy: proxyConfig,
+    },
+    preview: {
+      proxy: proxyConfig,
     },
   };
 });
