@@ -1,57 +1,56 @@
-# Naam Dating (നാം) — Mobile Responsiveness, Optical Alignment & Tactile UX Plan
+# Naam Dating (നാം) — "Join Waitlist" CTA & 2-Step WhatsApp OTP Waitlist Integration Plan
 
-This update resolves the mobile top navigation bar overlap, optically centers the Hero hand-held iPhone mockup across both mobile (`375px–430px`) and desktop (`1440px`) viewports, and introduces scroll-triggered Bento micro-interactions and live toggles tailored for mobile touchscreens.
+This update replaces the **App Store** and **Playstore** buttons with **Join Waitlist** CTAs and connects them to the live Naam Dating backend (`https://naam.gredin.app`) for a 2-step waitlist registration and WhatsApp OTP verification flow.
 
 ## User Review & Critical Decisions
 
 > [!IMPORTANT]
-> Both design and UX choices below reflect your confirmed preferences from our clarification step while preserving 100% of the desktop Figma design and SEO architecture.
+> Both product decisions below directly implement your confirmed choices from our clarification step and address the API's CORS behavior discovered during the live trial run.
 
-- **Confirmed Decision 1 (Mobile Top Navigation Bar)**: Use a **clean pill bar with an expandable mobile menu sheet** on mobile viewports (`< 768px`) so the `FAQ` link never crowds or overlaps the `naam` logo or `Download App` button. On desktop (`>= 768px`), the exact single-row Figma pill header remains unchanged.
-- **Confirmed Decision 2 (Mobile Tactile Experience)**: Implement **scroll-triggered Bento card micro-interactions and live toggles** so mobile users automatically see each card's interactive controls awaken as they scroll into view, paired with responsive touch feedback on tap.
+- **Confirmed Decision 1 (CTA Replacement)**: Remove the dual **App Store** and **Playstore** buttons and replace them with a sleek black pill **Join Waitlist** button in both the Hero section and the bottom phone showcase section (plus the top navigation bar CTA).
+- **Confirmed Decision 2 (2-Step Waitlist Flow)**: Implement **Step 1 (Submit Details)** via `POST /users/submit` (`name`, `countryCode`, `phoneNumber`, `gender`) followed by **Step 2 (Verify WhatsApp OTP)** via `POST /users/verify-otp` (`phoneNumber`, `otp`) and `POST /users/resend-otp` (`phoneNumber`).
+- **Technical Discovery (CORS Proxy)**: During our trial test, `https://naam.gredin.app/users/submit` returned `201 Created` (`{"userId":"...","message":"OTP sent successfully"}`), while browser `OPTIONS` preflight requests returned `404 Cannot OPTIONS /users/submit`. Routing requests through a lightweight `/api/users/*` server proxy guarantees 100% reliability in all desktop and mobile browsers without CORS errors.
 
 ---
 
 ## 1. Overview & Core Concept
 
-- **What It Does**: Delivers a seamless, native-feeling mobile and desktop web experience for **Naam Dating (നാം)** (`naamdating.com`), fixing mobile header crowding and phone mockup optical centering while making the 5 Bento showcase cards come alive on mobile scroll and touch.
-- **Target Audience / Persona**: Global Malayali singles browsing on iOS and Android smartphones (from Instagram, WhatsApp, or Google Search) as well as desktop browsers.
-- **Key Value**: Eliminates visual friction on mobile screens (zero overlapping links, dead-center Hero phone alignment) and builds instant product trust through responsive, genuine micro-interactions.
+- **What It Does**: Allows Malayali singles visiting `naamdating.com` to tap **Join Waitlist**, submit their name, country code (`+91`, `+971`, `+44`, `+1`, etc.), phone number, and gender (`MALE`, `FEMALE`, `OTHER`), receive an instant OTP on WhatsApp from `https://naam.gredin.app/users/submit`, and verify their spot via `https://naam.gredin.app/users/verify-otp`.
+- **Target Audience / Persona**: Global Malayali singles in Kerala, Bengaluru, Dubai, the UK, Canada, and the US signing up for early access on mobile and desktop.
+- **Key Value**: Converts website visitors into verified, phone-authenticated waitlist members via WhatsApp OTP in under 30 seconds.
 
 ---
 
 ## 2. User Experience & Visual Design
 
 - **Key User Flows**:
-  1. **Top Pill Navigation & Expandable Mobile Menu Sheet**:
-     - On mobile screens, the top floating pill header cleanly displays the official `naam` logo on the left and the `Download App` pill + a 44×44px menu toggle button on the right.
-     - Tapping the menu toggle smoothly opens a rounded card sheet right below the pill containing single-line links for **Why Naam**, **Women's Safety**, **Global Community**, **FAQ**, **Privacy Policy**, and **Terms of Use**, closing automatically when any link is tapped.
-  2. **Optical Hero Phone Centering (Mobile & Desktop)**:
-     - Because the hand and wrist in the Hero mockup image (`Group_12_34a08f7b.png`, `653×763`) extend to the right side of the transparent canvas, the iPhone screen's center axis sits at `42.1%` of the image width (`7.9%` left of the image's bounding-box center).
-     - Applying a calibrated optical offset (`translate-x-[7.9%]`) inside a centered, mobile-proportioned container aligns the iPhone screen dead-center beneath the `naam` logo, subtitle, `[App Store]` / `[Playstore]` buttons, and `"Loved By 10,000+ Users"` across every screen width.
-  3. **Scroll-Triggered Mobile Bento Micro-Interactions & Live Toggles**:
-     - On mobile devices (where cursor hover does not exist), an `IntersectionObserver` detects as each Bento card enters the active viewport zone and smoothly reveals its interactive pill bar (`data-in-view="true"`) with a subtle spring lift on the card artwork.
-     - Users can tap each card's interactive control on mobile or desktop:
-       - **Card 1 (Selfie-Verified Singles)**: Toggles a live `"Liked · Match Ready ♥"` state with a tactile pulse on the verification card.
-       - **Card 2 (Women-First Privacy Shield)**: Toggles live photo privacy blur (`blur(5px)`) on and off so users can test the anti-screenshot privacy shield firsthand.
-       - **Card 3 (Global Malayali Community)**: Cycles live active member counts across time zones (`Kochi IST`, `Dubai GST`, `London & NYC`, `20+ Countries`).
-       - **Card 4 (Block Contacts)**: Cycles through on-device contact hash states (`Hide from known contacts ✓`, `Family & Relatives Blocked ✓`, `100% Mutual Invisibility ✓`).
-       - **Card 5 (Switch Modes)**: Interactive segmented toggle for `Casual`, `Serious`, and `Marriage` intentions with smooth visual elevation.
-- **Visual Identity & Theme**:
-  - *Aesthetic Direction*: Crisp editorial minimalism matching the Figma design (`#F5F5F3` warm stone hero surface, `#FFFFFF` main canvas, `#F6F6F6` Bento cards).
-  - *Color Palette & Mood*: Charcoal black (`#111111` / `#1D1D1F`), muted zinc (`#52525B`), brand rose-pink (`#F01264` / `#FF004D`), and royal purple (`#6C3CE9`).
-  - *Typography & Hierarchy*: `Plus Jakarta Sans` paired with `Noto Sans Malayalam` for Malayalam script (`നാം`), maintaining single-line `whitespace-nowrap` discipline on all navigation links, buttons, and interactive pills.
+  1. **"Join Waitlist" Primary CTA Buttons**:
+     - Replaces the `[App Store]` and `[Playstore]` buttons in the Hero section and in the second phone showcase section with a centered black pill **Join Waitlist** button (`#111111`), preserving the curved arrow and `"Loved By 10,000+ Users"` social proof right below it.
+     - Updates the top navigation pill CTA to **Join Waitlist** so every call-to-action on the page opens the interactive waitlist modal/sheet.
+  2. **Step 1 — Submit Details (`POST /users/submit`)**:
+     - Clicking **Join Waitlist** opens a responsive modal (centered dialog on desktop, smooth bottom-sheet style on mobile) styled in Naam's `#F5F5F3` / `#FFFFFF` / `#111111` palette:
+       - **Full Name**: Text input (`name`, required, min 2 characters).
+       - **Country Code & WhatsApp Phone Number**: Country calling code selector (`+91` IN, `+971` UAE, `+44` UK, `+1` US/CA, `+61` AU, `+49` DE, `+65` SG, `+966` SA, `+974` QA, etc.) paired with a numeric phone input (`phoneNumber`).
+       - **Gender**: 3-option segmented pill selector mapping to the exact API enum (`FEMALE`, `MALE`, `OTHER`).
+       - **Action**: Tapping **Send WhatsApp OTP** validates inputs, displays a loading spinner, and posts to `/api/users/submit`.
+  3. **Step 2 — Verify WhatsApp OTP (`POST /users/verify-otp` & `POST /users/resend-otp`)**:
+     - Upon `201 Created`, transitions smoothly to Step 2 displaying the formatted WhatsApp number (`+91 9876543210`) and a `"Change number"` link.
+     - **OTP Input**: 6-digit numeric verification input (`inputmode="numeric"`, `autocomplete="one-time-code"` for automatic mobile OTP autofill).
+     - **Resend OTP**: Includes a **Resend OTP on WhatsApp** button (`POST /api/users/resend-otp`) with a 30-second countdown timer.
+     - **Action**: Tapping **Verify & Join Waitlist** posts `{ phoneNumber, otp }` to `/api/users/verify-otp`.
+  4. **Step 3 — Verified Waitlist Confirmation**:
+     - Upon successful OTP verification, displays a verified confirmation screen with the user's name and verified WhatsApp number, saving the verified state in `localStorage` so the user sees their confirmed waitlist status.
 
 ---
 
 ## 3. Key Product Decisions & Trade-Offs
 
-- **Decision 1: Responsive Top Pill Header with Expandable Mobile Drawer**
-  - *Chosen Approach*: Keep `Why Naam`, `Women's Safety`, `Global Community`, and `FAQ` inline on `md:` (`>= 768px`) screens, and move `FAQ` + section links into a clean, animated mobile dropdown sheet triggered from a 44×44px menu button on `< 768px` screens across all 3 pages (`index.html`, `privacy.html`, `terms.html`).
-  - *Why*: Prevents the `FAQ` link from colliding with the `naam` logo or `Download App` button on `320px–430px` phones while giving mobile users effortless thumb access to all sections.
-- **Decision 2: Viewport-Aware Scroll Awakening for Bento Cards**
-  - *Chosen Approach*: Use a lightweight vanilla TypeScript `IntersectionObserver` that sets `data-in-view="true"` when a Bento card enters the middle of the mobile viewport, paired with compositor-only CSS transitions (`transform`, `opacity`, `filter`).
-  - *Why*: Gives mobile visitors the same "wow" interactive discovery as desktop hover without requiring extra taps to discover hidden controls, while maintaining zero layout shift (CLS = 0).
+- **Decision 1: Server-Side Proxy for `https://naam.gredin.app/users/*`**
+  - *Chosen Approach*: Forward `/api/users/submit`, `/api/users/verify-otp`, and `/api/users/resend-otp` from the local server to `https://naam.gredin.app/users/*`.
+  - *Why*: `https://naam.gredin.app` does not currently respond to browser `OPTIONS` preflight requests (`404 Cannot OPTIONS`). Proxying server-to-server eliminates browser CORS blocks while forwarding exact HTTP status codes and error messages from `naam.gredin.app`.
+- **Decision 2: Global Malayali Diaspora Country Code Presets**
+  - *Chosen Approach*: Provide instant presets for top Malayali regions (`+91` India, `+971` UAE, `+44` UK, `+1` US/Canada, `+61` Australia, `+49` Germany, `+966` Saudi Arabia, `+974` Qatar, `+965` Kuwait, `+968` Oman, `+65` Singapore, `+353` Ireland, `+64` New Zealand).
+  - *Why*: Matches Naam's global Malayali audience and ensures the `countryCode` always includes the leading `+` required by `SubmitUserDto`.
 
 ---
 
@@ -60,30 +59,33 @@ This update resolves the mobile top navigation bar overlap, optically centers th
 - **Architecture & Component Diagram**:
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                Static Semantic HTML5 DOM (Zero-JS Indexing)              │
-│   ┌────────────────────┐  ┌────────────────────┐  ┌──────────────────┐   │
-│   │     index.html     │  │    privacy.html    │  │    terms.html    │   │
-│   └─────────┬──────────┘  └─────────┬──────────┘  └────────┬─────────┘   │
-└─────────────┼───────────────────────┼──────────────────────┼─────────────┘
-              │                       │                      │
-              ▼                       ▼                      ▼
+│                 Browser Client (Mobile & Desktop DOM)                    │
+│  ┌──────────────────────────┐        ┌────────────────────────────────┐  │
+│  │  "Join Waitlist" Buttons │───────▶│   2-Step Waitlist Modal UI     │  │
+│  │  (Hero, Navbar, Showcase)│        │  • Step 1: Name, Phone, Gender │  │
+│  └──────────────────────────┘        │  • Step 2: 6-Digit WhatsApp OTP│  │
+│                                      │  • Step 3: Verified Pass State │  │
+│                                      └───────────────┬────────────────┘  │
+└──────────────────────────────────────────────────────┼───────────────────┘
+                                                       │ POST /api/users/*
+                                                       ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
-│            Progressive Enhancement Layer (Vanilla TypeScript)            │
-│  ┌────────────────────────────────────────────────────────────────────┐  │
-│  │ 1. Mobile Pill Header & Expandable Menu Sheet Controller           │  │
-│  │    - Toggles aria-expanded, backdrop, & smooth link auto-close     │  │
-│  ├────────────────────────────────────────────────────────────────────┤  │
-│  │ 2. Viewport IntersectionObserver (Scroll-Triggered Bento Awakening)│  │
-│  │    - Reveals live interactive pill bars & subtle visual lift       │  │
-│  ├────────────────────────────────────────────────────────────────────┤  │
-│  │ 3. Tactile Bento Micro-Interaction Controllers (5 Cards)           │  │
-│  │    - Verified Like, Privacy Blur, Time-Zone Hub, Contact Blocker,  │  │
-│  │      and Casual / Serious / Marriage Intention Switcher            │  │
-│  └────────────────────────────────────────────────────────────────────┘  │
+│                  CORS-Safe Proxy Layer (/api/users/*)                    │
+└──────────────────────────────────────────────────────┬───────────────────┘
+                                                       │ HTTPS POST
+                                                       ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│             Live Naam Backend (https://naam.gredin.app)                  │
+│  • POST /users/submit     -> { name, countryCode, phoneNumber, gender }  │
+│  • POST /users/verify-otp -> { phoneNumber, otp }                        │
+│  • POST /users/resend-otp -> { phoneNumber }                             │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
+- **Data Model & State**:
+  - `SubmitUserDto`: `{ name: string, countryCode: string, phoneNumber: string, gender: "MALE" | "FEMALE" | "OTHER" }`
+  - `VerifyOtpDto`: `{ phoneNumber: string, otp: string }`
+  - `ResendOtpDto`: `{ phoneNumber: string }`
 - **Interactive Component & State Mapping**:
-  - **Mobile Menu Controller**: Binds `[data-mobile-menu-btn]` and `[data-mobile-menu-panel]` across `index.html`, `privacy.html`, and `terms.html`; handles `aria-expanded` toggling, Escape key dismissal, outside-click dismissal, and smooth scroll on anchor click.
-  - **Optical Hero Phone Wrapper**: Uses `translate-x-[7.9%]` inside an `overflow-hidden` hero section with responsive `max-w-[340px] sm:max-w-[530px]` sizing so the iPhone screen bezel is centered at `50%` viewport width on both mobile and desktop.
-  - **Bento Card Scroll & Tap Handlers**: Combines `IntersectionObserver` (`threshold: 0.45`) with pointer and touch listeners so interactive pills are visible and responsive on mobile touchscreens as well as desktop pointers.
+  - **Form Validation**: Checks non-empty name, numeric phone number (6–14 digits), and valid gender selection (`MALE | FEMALE | OTHER`) before enabling submission; displays clear inline error messages if the API returns `400`/`401`/`429`.
+  - **OTP Verification & Resend**: Supports 6-digit numeric entry, mobile `one-time-code` autofill, 30s resend cooldown, and back-to-Step-1 phone editing.

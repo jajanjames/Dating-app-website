@@ -215,7 +215,7 @@
                 width="299"
                 height="104"
                 decoding="async"
-                class="h-[21px] sm:h-[24px] w-auto object-contain select-none"
+                class="h-[17px] w-auto object-contain select-none"
               />
             </a>
 
@@ -234,13 +234,13 @@
             >
               FAQ
             </a>
-            <a
-              href="#download"
-              data-store="ios"
-              class="inline-flex items-center justify-center rounded-full bg-[#111111] px-4 sm:px-5 py-2 text-[12px] sm:text-[12.5px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap shrink-0"
+            <button
+              type="button"
+              data-open-waitlist
+              class="inline-flex items-center justify-center rounded-full bg-[#111111] px-4 sm:px-5 py-2 text-[12px] sm:text-[12.5px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap shrink-0 cursor-pointer"
             >
-              Download App
-            </a>
+              <span data-waitlist-btn-text>Join Waitlist</span>
+            </button>
             <button
               type="button"
               data-mobile-menu-btn
@@ -338,50 +338,21 @@
             </h1>
           </div>
 
-          <!-- App Store & Playstore Black Pill Buttons + Loved By 10,000+ Users + Curved Arrow -->
+          <!-- Join Waitlist Black Pill Button + Loved By 10,000+ Users + Curved Arrow -->
           <div class="relative mt-5 sm:mt-6 inline-flex flex-col items-center">
-            <div class="flex items-center justify-center gap-2.5 sm:gap-3.5">
-              <a
-                href="#download"
-                data-store="ios"
-                class="inline-flex min-w-[140px] sm:min-w-[152px] items-center justify-center gap-2 rounded-full bg-[#111111] px-5 sm:px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap"
+            <div class="flex items-center justify-center">
+              <button
+                type="button"
+                data-open-waitlist
+                class="inline-flex min-w-[184px] sm:min-w-[200px] items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 text-[13.5px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap cursor-pointer shadow-[0_6px_20px_rgba(0,0,0,0.12)]"
               >
-                <svg
-                  width="14"
-                  height="17"
-                  viewBox="0 0 22 26"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                  class="shrink-0 -mt-0.5"
-                >
-                  <path
-                    d="M18.12 13.77C18.1 10.67 20.65 9.15 20.77 9.07C19.32 6.95 17.07 6.66 16.29 6.57C14.41 6.38 12.59 7.68 11.63 7.68C10.67 7.68 9.21 6.59 7.64 6.62C5.61 6.65 3.73 7.8 2.69 9.61C0.56 13.3 2.15 18.75 4.19 21.7C5.21 23.16 6.4 24.8 7.98 24.74C9.52 24.68 10.11 23.76 11.96 23.76C13.81 23.76 14.35 24.74 15.95 24.7C17.61 24.68 18.65 23.22 19.65 21.75C20.84 20.03 21.32 18.35 21.34 18.26C21.3 18.23 18.15 17.02 18.12 13.77ZM15.05 4.58C15.89 3.56 16.46 2.16 16.3 0.73C15.09 0.78 13.59 1.54 12.72 2.55C11.95 3.43 11.27 4.88 11.46 6.27C12.81 6.38 14.2 5.6 15.05 4.58Z"
-                  />
-                </svg>
-                <span>App Store</span>
-              </a>
-
-              <a
-                href="#download"
-                data-store="android"
-                class="inline-flex min-w-[140px] sm:min-w-[152px] items-center justify-center gap-2 rounded-full bg-[#111111] px-5 sm:px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap"
-              >
-                <img
-                  src="/assets/aistudio/image_08190e7f.png"
-                  alt=""
-                  width="30"
-                  height="32"
-                  aria-hidden="true"
-                  class="h-[15px] w-auto object-contain shrink-0"
-                />
-                <span>Playstore</span>
-              </a>
+                <span data-waitlist-btn-text>Join Waitlist</span>
+              </button>
             </div>
 
             <!-- Loved By 10,000+ Users + Curved Arrow -->
             <div class="mt-3 flex items-center justify-center">
-              <p class="text-[12px] font-normal text-[#52525B]">Loved By 10,000+ Users</p>
+              <p class="text-[12px] font-normal text-[#52525B]">2000+ joined</p>
             </div>
 
             <!-- Curved Arrow pointing up-right toward the Playstore button -->
@@ -676,49 +647,16 @@
             />
           </div>
 
-          <!-- Centered App Store & Playstore Pill Buttons below divider -->
-          <div class="mt-7 flex items-center justify-center gap-2.5 sm:gap-3.5">
-            <a
-              href="#download"
-              data-store="ios"
-              class="inline-flex min-w-[140px] sm:min-w-[152px] items-center justify-center gap-2 rounded-full bg-[#111111] px-5 sm:px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap"
+          <!-- Centered Join Waitlist Pill Button below divider -->
+          <div class="mt-7 flex items-center justify-center">
+            <button
+              type="button"
+              data-open-waitlist
+              class="inline-flex min-w-[184px] sm:min-w-[200px] items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 text-[13.5px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap cursor-pointer shadow-[0_6px_20px_rgba(0,0,0,0.12)]"
             >
-              <svg
-                width="14"
-                height="17"
-                viewBox="0 0 22 26"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                class="shrink-0 -mt-0.5"
-              >
-                <path
-                  d="M18.12 13.77C18.1 10.67 20.65 9.15 20.77 9.07C19.32 6.95 17.07 6.66 16.29 6.57C14.41 6.38 12.59 7.68 11.63 7.68C10.67 7.68 9.21 6.59 7.64 6.62C5.61 6.65 3.73 7.8 2.69 9.61C0.56 13.3 2.15 18.75 4.19 21.7C5.21 23.16 6.4 24.8 7.98 24.74C9.52 24.68 10.11 23.76 11.96 23.76C13.81 23.76 14.35 24.74 15.95 24.7C17.61 24.68 18.65 23.22 19.65 21.75C20.84 20.03 21.32 18.35 21.34 18.26C21.3 18.23 18.15 17.02 18.12 13.77ZM15.05 4.58C15.89 3.56 16.46 2.16 16.3 0.73C15.09 0.78 13.59 1.54 12.72 2.55C11.95 3.43 11.27 4.88 11.46 6.27C12.81 6.38 14.2 5.6 15.05 4.58Z"
-                />
-              </svg>
-              <span>App Store</span>
-            </a>
-
-            <a
-              href="#download"
-              data-store="android"
-              class="inline-flex min-w-[140px] sm:min-w-[152px] items-center justify-center gap-2 rounded-full bg-[#111111] px-5 sm:px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-black/85 active:scale-[0.98] transition-all whitespace-nowrap"
-            >
-              <img
-                src="/assets/aistudio/image_08190e7f.png"
-                alt=""
-                width="30"
-                height="32"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-                class="h-[15px] w-auto object-contain shrink-0"
-              />
-              <span>Playstore</span>
-            </a>
+              <span data-waitlist-btn-text>Join Waitlist</span>
+            </button>
           </div>
-
-          <p id="download-feedback" class="mt-3 text-xs font-medium text-[#FF004D] hidden" role="status" aria-live="polite"></p>
         </div>
       </section>
 
@@ -999,70 +937,15 @@
         <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8">
           <!-- Left Footer Column -->
           <div>
-            <!-- Outlined Google Play & App Store Badges -->
+            <!-- Join Waitlist Outlined Badge -->
             <div class="flex flex-wrap items-center gap-2.5 mb-5">
-              <!-- Google Play Outlined Badge -->
-              <a
-                href="#download"
-                data-store="android"
-                class="inline-flex items-center gap-2 rounded-[5px] border border-[#71717A] bg-white px-2.5 py-1 hover:border-black transition-colors"
+              <button
+                type="button"
+                data-open-waitlist
+                class="inline-flex items-center gap-2 rounded-full border border-[#1D1D1F] bg-white px-4 py-1.5 text-[12px] font-semibold text-[#1D1D1F] hover:bg-[#111111] hover:text-white transition-colors whitespace-nowrap cursor-pointer"
               >
-                <svg
-                  width="16"
-                  height="18"
-                  viewBox="0 0 22 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                  class="shrink-0"
-                >
-                  <path
-                    d="M1.22 0.94C0.93 1.25 0.75 1.73 0.75 2.36V21.64C0.75 22.27 0.93 22.75 1.22 23.06L1.3 23.13L12.1 12.33V11.67L1.3 0.87L1.22 0.94Z"
-                    fill="#32BBFF"
-                  />
-                  <path
-                    d="M15.7 15.93L12.1 12.33V11.67L15.7 8.07L15.78 8.12L20.04 10.54C21.26 11.23 21.26 12.37 20.04 13.06L15.78 15.48L15.7 15.93Z"
-                    fill="#FFBC00"
-                  />
-                  <path
-                    d="M15.78 15.48L12.1 11.8L1.22 22.68C1.62 23.11 2.28 23.16 3.04 22.73L15.78 15.48Z"
-                    fill="#FF3A44"
-                  />
-                  <path
-                    d="M15.78 8.12L3.04 0.87C2.28 0.44 1.62 0.49 1.22 0.92L12.1 11.8L15.78 8.12Z"
-                    fill="#00F076"
-                  />
-                </svg>
-                <span class="text-left leading-none">
-                  <span class="block text-[6.5px] font-semibold uppercase tracking-wider text-[#52525B]">GET IT ON</span>
-                  <span class="block text-[11px] font-semibold text-[#1D1D1F] mt-0.5">Google Play</span>
-                </span>
-              </a>
-
-              <!-- App Store Outlined Badge -->
-              <a
-                href="#download"
-                data-store="ios"
-                class="inline-flex items-center gap-2 rounded-[5px] border border-[#71717A] bg-white px-2.5 py-1 hover:border-black transition-colors"
-              >
-                <svg
-                  width="15"
-                  height="18"
-                  viewBox="0 0 22 26"
-                  fill="#1D1D1F"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                  class="shrink-0"
-                >
-                  <path
-                    d="M18.12 13.77C18.1 10.67 20.65 9.15 20.77 9.07C19.32 6.95 17.07 6.66 16.29 6.57C14.41 6.38 12.59 7.68 11.63 7.68C10.67 7.68 9.21 6.59 7.64 6.62C5.61 6.65 3.73 7.8 2.69 9.61C0.56 13.3 2.15 18.75 4.19 21.7C5.21 23.16 6.4 24.8 7.98 24.74C9.52 24.68 10.11 23.76 11.96 23.76C13.81 23.76 14.35 24.74 15.95 24.7C17.61 24.68 18.65 23.22 19.65 21.75C20.84 20.03 21.32 18.35 21.34 18.26C21.3 18.23 18.15 17.02 18.12 13.77ZM15.05 4.58C15.89 3.56 16.46 2.16 16.3 0.73C15.09 0.78 13.59 1.54 12.72 2.55C11.95 3.43 11.27 4.88 11.46 6.27C12.81 6.38 14.2 5.6 15.05 4.58Z"
-                  />
-                </svg>
-                <span class="text-left leading-none">
-                  <span class="block text-[6.5px] font-medium text-[#52525B]">Download on the</span>
-                  <span class="block text-[11px] font-semibold text-[#1D1D1F] mt-0.5">App Store</span>
-                </span>
-              </a>
+                <span data-waitlist-btn-text>Join Waitlist</span>
+              </button>
             </div>
 
             <!-- Footer Links -->
@@ -1139,6 +1022,255 @@
         </div>
       </div>
     </footer>
+
+    <!-- ===================================================================== -->
+    <!-- 2-STEP NAAM WAITLIST MODAL (Step 1: Submit Details -> Step 2: OTP)    -->
+    <!-- ===================================================================== -->
+    <div
+      id="waitlist-modal"
+      data-open="false"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="waitlist-modal-title"
+      class="waitlist-modal-backdrop hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs p-0 sm:p-4"
+    >
+      <div
+        data-waitlist-dialog
+        class="waitlist-modal-panel relative w-full sm:max-w-[440px] rounded-t-[28px] sm:rounded-[28px] bg-white p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.18)] border border-black/[0.06]"
+      >
+        <!-- Mobile Grab Handle -->
+        <div class="sm:hidden w-10 h-1.5 rounded-full bg-neutral-200 mx-auto mb-4"></div>
+
+        <!-- Close Button -->
+        <button
+          type="button"
+          data-close-waitlist
+          aria-label="Close waitlist modal"
+          class="absolute right-5 top-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#F5F5F3] text-[#52525B] hover:bg-neutral-200 hover:text-[#1D1D1F] transition-colors cursor-pointer"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+
+        <!-- Brand Header -->
+        <div class="flex flex-col items-start">
+          <img
+            src="/assets/aistudio/image_2c8fb4f9.png"
+            alt="Naam Dating (നാം)"
+            width="299"
+            height="104"
+            class="h-[24px] w-auto object-contain select-none mb-3"
+          />
+        </div>
+
+        <!-- STEP 1: SUBMIT USER DETAILS (POST /users/submit) -->
+        <div id="wl-step-1">
+          <h2 id="waitlist-modal-title" class="text-[22px] sm:text-[24px] font-bold tracking-tight text-[#1D1D1F]">
+            Join the Naam Waitlist
+          </h2>
+          <p class="mt-1 text-[13.5px] text-[#52525B]">
+            Reserve your spot on the global Malayali dating app. We'll send a quick verification OTP on WhatsApp.
+          </p>
+
+          <form id="wl-submit-form" class="mt-5 space-y-4" novalidate>
+            <!-- Full Name -->
+            <div>
+              <label for="wl-name" class="block text-[12.5px] font-semibold text-[#1D1D1F] mb-1.5">
+                Full Name
+              </label>
+              <input
+                id="wl-name"
+                name="name"
+                type="text"
+                required
+                autocomplete="name"
+                placeholder="e.g. Ananya Nair"
+                class="w-full rounded-[14px] bg-[#F5F5F3] px-4 py-3 text-[14px] font-medium text-[#1D1D1F] placeholder:text-[#71717A] border border-transparent focus:border-[#1D1D1F] focus:bg-white focus:outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Country Code + Phone Number -->
+            <div>
+              <label for="wl-phone" class="block text-[12.5px] font-semibold text-[#1D1D1F] mb-1.5">
+                WhatsApp Phone Number
+              </label>
+              <div class="flex items-stretch gap-2">
+                <select
+                  id="wl-country-code"
+                  name="countryCode"
+                  aria-label="Country calling code"
+                  class="w-[116px] shrink-0 rounded-[14px] bg-[#F5F5F3] px-3 py-3 text-[13.5px] font-semibold text-[#1D1D1F] border border-transparent focus:border-[#1D1D1F] focus:bg-white focus:outline-none transition-colors cursor-pointer"
+                >
+                  <option value="+91" selected>🇮🇳 +91</option>
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+1">🇺🇸/🇨🇦 +1</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+966">🇸🇦 +966</option>
+                  <option value="+974">🇶🇦 +974</option>
+                  <option value="+965">🇰🇼 +965</option>
+                  <option value="+968">🇴🇲 +968</option>
+                  <option value="+973">🇧🇭 +973</option>
+                  <option value="+65">🇸🇬 +65</option>
+                  <option value="+353">🇮🇪 +353</option>
+                  <option value="+64">🇳🇿 +64</option>
+                </select>
+                <input
+                  id="wl-phone"
+                  name="phoneNumber"
+                  type="tel"
+                  inputmode="numeric"
+                  required
+                  autocomplete="tel-national"
+                  placeholder="9876543210"
+                  class="min-w-0 flex-1 rounded-[14px] bg-[#F5F5F3] px-4 py-3 text-[14px] font-medium text-[#1D1D1F] placeholder:text-[#71717A] border border-transparent focus:border-[#1D1D1F] focus:bg-white focus:outline-none transition-colors tabular-nums"
+                />
+              </div>
+            </div>
+
+            <!-- Gender Selection (MALE | FEMALE | OTHER) -->
+            <div>
+              <span class="block text-[12.5px] font-semibold text-[#1D1D1F] mb-1.5">
+                Gender
+              </span>
+              <input type="hidden" id="wl-gender" name="gender" value="FEMALE" />
+              <div class="grid grid-cols-3 gap-2 rounded-[14px] bg-[#F5F5F3] p-1">
+                <button
+                  type="button"
+                  data-wl-gender="FEMALE"
+                  class="rounded-[10px] bg-[#111111] py-2.5 text-[13px] font-semibold text-white transition-all whitespace-nowrap cursor-pointer"
+                >
+                  Female
+                </button>
+                <button
+                  type="button"
+                  data-wl-gender="MALE"
+                  class="rounded-[10px] py-2.5 text-[13px] font-medium text-[#52525B] hover:text-[#1D1D1F] transition-all whitespace-nowrap cursor-pointer"
+                >
+                  Male
+                </button>
+                <button
+                  type="button"
+                  data-wl-gender="OTHER"
+                  class="rounded-[10px] py-2.5 text-[13px] font-medium text-[#52525B] hover:text-[#1D1D1F] transition-all whitespace-nowrap cursor-pointer"
+                >
+                  Other
+                </button>
+              </div>
+            </div>
+
+            <!-- Error Banner -->
+            <p
+              id="wl-step1-error"
+              role="alert"
+              class="hidden rounded-[12px] bg-[#FFF0F5] px-3.5 py-2.5 text-[12.5px] font-medium text-[#F01264]"
+            ></p>
+
+            <!-- Submit Button -->
+            <button
+              id="wl-submit-btn"
+              type="submit"
+              class="w-full rounded-full bg-[#111111] py-3.5 text-[14px] font-semibold text-white hover:bg-black/85 active:scale-[0.99] transition-all whitespace-nowrap cursor-pointer disabled:opacity-50"
+            >
+              Send WhatsApp OTP
+            </button>
+
+            <p class="text-center text-[11.5px] text-[#71717A]">
+              Zero spam. Your phone number is never shared publicly.
+            </p>
+          </form>
+        </div>
+
+        <!-- STEP 2: VERIFY WHATSAPP OTP (POST /users/verify-otp & /users/resend-otp) -->
+        <div id="wl-step-2" class="hidden">
+          <h2 class="text-[22px] sm:text-[24px] font-bold tracking-tight text-[#1D1D1F]">
+            Verify WhatsApp OTP
+          </h2>
+          <p class="mt-1 text-[13.5px] text-[#52525B]">
+            Enter the 6-digit verification code sent via WhatsApp to
+            <span id="wl-display-phone" class="font-semibold text-[#1D1D1F] tabular-nums"></span>.
+            <button
+              type="button"
+              id="wl-edit-phone-btn"
+              class="ml-1 font-semibold text-[#F01264] underline hover:text-[#1D1D1F] cursor-pointer whitespace-nowrap"
+            >
+              Change
+            </button>
+          </p>
+
+          <form id="wl-verify-form" class="mt-5 space-y-4" novalidate>
+            <div>
+              <label for="wl-otp" class="block text-[12.5px] font-semibold text-[#1D1D1F] mb-1.5">
+                Verification Code
+              </label>
+              <input
+                id="wl-otp"
+                name="otp"
+                type="text"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                maxlength="6"
+                required
+                placeholder="123456"
+                class="w-full rounded-[14px] bg-[#F5F5F3] px-4 py-3.5 text-center text-[20px] font-bold tracking-[0.3em] text-[#1D1D1F] placeholder:text-[#A1A1AA] placeholder:tracking-[0.2em] border border-transparent focus:border-[#1D1D1F] focus:bg-white focus:outline-none transition-colors tabular-nums"
+              />
+            </div>
+
+            <!-- Error / Info Banner -->
+            <p
+              id="wl-step2-feedback"
+              role="alert"
+              class="hidden rounded-[12px] px-3.5 py-2.5 text-[12.5px] font-medium"
+            ></p>
+
+            <button
+              id="wl-verify-btn"
+              type="submit"
+              class="w-full rounded-full bg-[#111111] py-3.5 text-[14px] font-semibold text-white hover:bg-black/85 active:scale-[0.99] transition-all whitespace-nowrap cursor-pointer disabled:opacity-50"
+            >
+              Verify &amp; Join Waitlist
+            </button>
+
+            <div class="flex items-center justify-between pt-1 text-[12.5px]">
+              <span class="text-[#71717A]">Didn't receive the code?</span>
+              <button
+                type="button"
+                id="wl-resend-btn"
+                class="font-semibold text-[#1D1D1F] hover:text-[#F01264] disabled:text-[#A1A1AA] transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Resend OTP
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 3: CONFIRMED WAITLIST PASS -->
+        <div id="wl-step-3" class="hidden text-center py-3">
+          <div class="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#DCFCE7] text-[#16A34A]">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
+          <h2 class="text-[22px] sm:text-[24px] font-bold tracking-tight text-[#1D1D1F]">
+            You're on the Waitlist!
+          </h2>
+          <p class="mt-2 text-[14px] text-[#52525B] leading-relaxed">
+            Welcome to Naam Dating (നാം), <span id="wl-confirmed-name" class="font-semibold text-[#1D1D1F]"></span>. Your WhatsApp number
+            <span id="wl-confirmed-phone" class="font-semibold text-[#1D1D1F] tabular-nums"></span> is verified for priority early access.
+          </p>
+
+          <button
+            type="button"
+            data-close-waitlist
+            class="mt-6 w-full rounded-full bg-[#111111] py-3.5 text-[14px] font-semibold text-white hover:bg-black/85 transition-colors whitespace-nowrap cursor-pointer"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.tsx"></script>
   </body>

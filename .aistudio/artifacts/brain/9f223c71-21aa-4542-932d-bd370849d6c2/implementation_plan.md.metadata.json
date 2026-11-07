@@ -1,6 +1,6 @@
 {
-  "summary": "Implementation plan to fix mobile top navigation overlap with an expandable mobile menu sheet, optically center the Hero phone mockup across mobile and desktop viewports, and add scroll-triggered Bento card micro-interactions and live tactile toggles for mobile users.",
-  "updatedAt": "2026-11-05T21:30:56.010339099Z",
-  "requestFeedback": true,
-  "userFacing": true
+  "summary":  "Implementation plan to replace the App Store and Playstore buttons with 'Join Waitlist' CTAs and integrate the live 2-step Naam Dating Waitlist API (POST /users/submit, POST /users/verify-otp, POST /users/resend-otp) with a CORS-safe backend proxy.",
+  "updatedAt":  "2026-11-07T07:59:22.247579531Z",
+  "requestFeedback":  true,
+  "userFacing":  true
 }

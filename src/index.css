@@ -45,6 +45,25 @@
   pointer-events: auto;
 }
 
+/* Waitlist Modal Backdrop & Panel transitions */
+.waitlist-modal-backdrop {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.waitlist-modal-backdrop[data-open="true"] {
+  opacity: 1;
+}
+
+.waitlist-modal-panel {
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.waitlist-modal-backdrop[data-open="true"] .waitlist-modal-panel {
+  transform: translateY(0) scale(1);
+}
+
 /* Seamless, minimal Bento physics, scroll-triggered awakening & ambient spotlight */
 .bento-card {
   position: relative;
@@ -121,7 +140,9 @@
   .bento-card,
   .bento-visual,
   .bento-pill-bar,
-  .mobile-menu-sheet {
+  .mobile-menu-sheet,
+  .waitlist-modal-backdrop,
+  .waitlist-modal-panel {
     transition: none !important;
     transform: none !important;
   }

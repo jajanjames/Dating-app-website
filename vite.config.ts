@@ -26,6 +26,13 @@ export default defineConfig(() => {
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      proxy: {
+        '/api/users': {
+          target: 'https://naam.gredin.app',
+          changeOrigin: true,
+          rewrite: (p) => p.replace(/^\/api\/users/, '/users'),
+        },
+      },
     },
   };
 });
